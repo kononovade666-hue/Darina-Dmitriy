@@ -1,49 +1,521 @@
-from pathlib import Path
-import zipfile, textwrap
+/* ===========================
+   RESET
+=========================== */
 
-root = Path("/mnt/data/wedding_invitation_site")
-root.mkdir(exist_ok=True)
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-html = """<!doctype html>
-<html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Дмитрий & Дарина | 26.09.2026</title>
-<style>
-body{margin:0;font-family:Georgia,serif;background:#f7f3ed;color:#3d332b;text-align:center}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:30px}
-h1{font-size:54px;font-weight:400;margin:10px}
-.date{font-size:24px;letter-spacing:2px}
-.card{max-width:600px;margin:25px auto;padding:30px;background:#fffaf3;border-radius:20px;box-shadow:0 10px 30px #0001}
-h2{font-weight:400}
-</style>
-</head>
-<body>
-<section class="hero">
-<div class="card">
-<p>Приглашение на свадьбу</p>
-<h1>Дмитрий<br>и<br>Дарина</h1>
-<div class="date">26.09.2026</div>
-</div>
-<div class="card">
-<h2>Церемония</h2>
-<p>ЗАГС<br>1 Мая, 20</p>
-<p>Сбор гостей: 16:00<br>Начало церемонии: 16:20</p>
-</div>
-<div class="card">
-<h2>Мы будем рады разделить этот день с вами</h2>
-<p>С любовью, Дмитрий и Дарина 🤍</p>
-</div>
-</section>
-</body>
-</html>"""
+html{
+    scroll-behavior:smooth;
+}
 
-(root/"index.html").write_text(html, encoding="utf-8")
+body{
 
-zip_path="/mnt/data/Dmitry_Darina_wedding_site.zip"
-with zipfile.ZipFile(zip_path,"w") as z:
-    z.write(root/"index.html", "index.html")
+    background:#ece6dc;
 
-zip_path
+    font-family:'Cormorant Garamond',serif;
 
+    color:#214a84;
+
+    overflow-x:hidden;
+
+}
+
+/* ===========================
+   PAPER
+=========================== */
+
+.paper{
+
+    width:min(760px,100%);
+
+    margin:40px auto;
+
+    background:#f9f4ea;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.08);
+
+    border-radius:14px;
+
+}
+
+/* ===========================
+   FLOWERS
+=========================== */
+
+.frame-top{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    pointer-events:none;
+
+}
+
+.frame-bottom{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    pointer-events:none;
+
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+    padding:120px 60px;
+
+}
+
+.hero-inner{
+
+    width:100%;
+
+    max-width:620px;
+
+    z-index:3;
+
+}
+
+/* ===========================
+   TITLE
+=========================== */
+
+.small-title{
+
+    font-size:30px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-weight:400;
+
+    margin-bottom:45px;
+
+}
+
+/* ===========================
+   NAMES
+=========================== */
+
+.names{
+
+    margin-bottom:40px;
+
+}
+
+.name{
+
+    font-family:'Marck Script',cursive;
+
+    font-size:92px;
+
+    font-weight:400;
+
+    line-height:1.05;
+
+}
+
+.ampersand{
+
+    font-size:52px;
+
+    margin:14px 0;
+
+    opacity:.7;
+
+}
+
+/* ===========================
+   DATE
+=========================== */
+
+.date{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:70px;
+
+}
+
+.date span{
+
+    font-size:34px;
+
+    letter-spacing:4px;
+
+}
+
+.divider{
+
+    width:42px;
+
+    height:1px;
+
+    background:#214a84;
+
+}
+
+/* ===========================
+   COUPLE
+=========================== */
+
+.couple{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:35px;
+
+}
+
+.couple img{
+
+    width:360px;
+
+    max-width:90%;
+
+}
+
+/* ===========================
+   HEART
+=========================== */
+
+.heart{
+
+    font-size:26px;
+
+    margin-bottom:25px;
+
+    animation:heartbeat 2s infinite;
+
+}
+
+/* ===========================
+   SCROLL
+=========================== */
+
+.scroll{
+
+    font-size:34px;
+
+    animation:float 2.5s infinite;
+
+}
+
+/* ===========================
+   SECTION
+=========================== */
+
+.section{
+
+    padding:110px 60px;
+
+    position:relative;
+
+}
+
+.section h2{
+
+    text-align:center;
+
+    font-size:56px;
+
+    font-weight:400;
+
+    margin-bottom:70px;
+
+}
+
+/* ===========================
+   TIMELINE
+=========================== */
+
+.timeline{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+.event{
+
+    text-align:center;
+
+}
+
+.icon{
+
+    font-size:38px;
+
+    margin-bottom:15px;
+
+}
+
+.event h3{
+
+    font-size:36px;
+
+    margin-bottom:8px;
+
+    font-weight:500;
+
+}
+
+.event p{
+
+    font-size:26px;
+
+    opacity:.85;
+
+}
+
+.event span{
+
+    display:block;
+
+    margin-top:15px;
+
+    font-size:30px;
+
+}
+
+.line{
+
+    width:1px;
+
+    height:45px;
+
+    background:#214a84;
+
+    margin:auto;
+
+    opacity:.25;
+
+}
+
+/* ===========================
+   MAP
+=========================== */
+
+.map-card{
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.map-card iframe{
+
+    width:100%;
+
+    height:420px;
+
+    border:none;
+
+}
+
+/* ===========================
+   WISH
+=========================== */
+
+.wish{
+
+    text-align:center;
+
+}
+
+.wish p{
+
+    font-size:30px;
+
+    line-height:1.8;
+
+    max-width:620px;
+
+    margin:0 auto 25px;
+
+}
+
+.wish img{
+
+    width:320px;
+
+    margin-top:50px;
+
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes heartbeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    25%{
+
+        transform:scale(1.15);
+
+    }
+
+    50%{
+
+        transform:scale(1);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.hero{
+
+    padding:90px 30px;
+
+}
+
+.section{
+
+    padding:90px 30px;
+
+}
+
+.small-title{
+
+    font-size:22px;
+
+}
+
+.name{
+
+    font-size:62px;
+
+}
+
+.section h2{
+
+    font-size:42px;
+
+}
+
+.date span{
+
+    font-size:28px;
+
+}
+
+.event h3{
+
+    font-size:30px;
+
+}
+
+.event p{
+
+    font-size:22px;
+
+}
+
+.wish p{
+
+    font-size:24px;
+
+}
+
+.map-card iframe{
+
+    height:320px;
+
+}
+
+} 
