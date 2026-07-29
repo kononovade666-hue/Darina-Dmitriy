@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Дмитрий и Дарина | Приглашение на свадьбу</title>
+    <title>Дмитрий & Дарина | Свадебное приглашение</title>
     
-    <!-- Подключаем элегантные шрифты -->
+    <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" />
     
     <style>
-        /* ---------- Сброс и база ---------- */
+        /* ---------- БАЗА ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -20,133 +20,161 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: #f9f5f0;
-            color: #3a2c2a;
+            min-height: 100vh;
             display: flex;
+            align-items: center;
             justify-content: center;
             padding: 30px 20px;
-            min-height: 100vh;
-        }
-
-        .card {
-            max-width: 800px;
-            width: 100%;
-            background: #ffffff;
-            border-radius: 32px;
-            box-shadow: 0 20px 60px rgba(60, 40, 30, 0.12);
-            padding: 50px 40px 60px;
+            
+            /* Фоновое изображение — замените на свою фотографию */
+            background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
-            transition: all 0.3s ease;
         }
 
-        .card::before {
-            content: "✦";
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            font-size: 28px;
+        /* Тёмная вуаль поверх фона */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(20, 15, 13, 0.45);
+            z-index: 0;
+        }
+
+        /* ---------- ОСНОВНАЯ КАРТОЧКА ---------- */
+        .card {
+            position: relative;
+            z-index: 1;
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 252, 249, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 50px 45px 55px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeUp 1s ease-out;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---------- ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ---------- */
+        .ornament-top {
+            text-align: center;
+            font-size: 24px;
+            color: #c9a88b;
+            letter-spacing: 12px;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .ornament-divider {
+            text-align: center;
+            font-size: 18px;
             color: #d4b8a8;
-            opacity: 0.5;
+            letter-spacing: 8px;
+            margin: 6px 0 16px;
+            font-weight: 300;
         }
 
-        /* ---------- Типографика ---------- */
-        h1, h2, h3, .script {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-        }
-
-        .script {
-            font-style: italic;
-        }
-
-        /* ---------- Шапка ---------- */
+        /* ---------- ШАПКА ---------- */
         .header {
             text-align: center;
-            border-bottom: 1px solid #eee5df;
-            padding-bottom: 30px;
-            margin-bottom: 30px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(200, 180, 168, 0.3);
+            margin-bottom: 32px;
         }
 
         .header .subtitle {
-            font-size: 14px;
-            letter-spacing: 4px;
+            font-size: 13px;
+            letter-spacing: 5px;
             text-transform: uppercase;
             color: #b29586;
             font-weight: 400;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
-        .header h1 {
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.15;
+        .header .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 58px;
+            font-weight: 400;
             color: #2d201e;
+            line-height: 1.2;
         }
 
-        .header h1 .ampersand {
+        .header .names .ampersand {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-weight: 400;
-            color: #c9a494;
+            color: #c9a88b;
             font-size: 52px;
-            margin: 0 6px;
+            margin: 0 10px;
         }
 
         .header .date-big {
-            font-size: 28px;
-            font-weight: 300;
-            letter-spacing: 6px;
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 400;
+            letter-spacing: 8px;
             color: #6f5347;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .header .tagline {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 300;
             color: #5a4340;
-            max-width: 460px;
-            margin: 18px auto 0;
-            line-height: 1.7;
+            max-width: 480px;
+            margin: 16px auto 0;
+            line-height: 1.8;
             font-style: italic;
         }
 
         /* ---------- ТАЙМЕР ---------- */
         .timer-section {
-            background: #fdfaf8;
-            border-radius: 24px;
-            padding: 30px 20px;
-            margin-bottom: 40px;
+            background: rgba(255, 248, 242, 0.6);
+            border-radius: 28px;
+            padding: 28px 20px 24px;
+            margin-bottom: 35px;
             text-align: center;
-            border: 1px solid #eee5df;
+            border: 1px solid rgba(210, 185, 170, 0.2);
         }
 
         .timer-title {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 18px;
             color: #3a2c2a;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             letter-spacing: 2px;
         }
 
         .timer-grid {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
         .timer-item {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
             border-radius: 16px;
-            padding: 14px 22px;
-            min-width: 80px;
-            box-shadow: 0 2px 12px rgba(60, 40, 30, 0.06);
-            border: 1px solid #f0e8e2;
+            padding: 12px 22px;
+            min-width: 75px;
+            border: 1px solid rgba(210, 185, 170, 0.15);
         }
 
         .timer-item .number {
             font-family: 'Playfair Display', serif;
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 700;
             color: #2d201e;
             line-height: 1.1;
@@ -154,7 +182,7 @@
         }
 
         .timer-item .label {
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #b29586;
@@ -163,75 +191,77 @@
         }
 
         .timer-message {
-            margin-top: 18px;
-            font-size: 16px;
+            margin-top: 16px;
+            font-size: 15px;
             color: #6f5347;
             font-weight: 300;
         }
 
         .timer-message .highlight-date {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
             font-weight: 700;
             color: #2d201e;
         }
 
-        /* ---------- Секции ---------- */
+        /* ---------- СЕКЦИИ ---------- */
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 600;
             letter-spacing: 2px;
-            color: #3a2c2a;
-            border-bottom: 1px solid #eee5df;
-            padding-bottom: 10px;
-            margin-bottom: 22px;
+            color: #2d201e;
+            text-align: center;
+            margin-bottom: 18px;
             position: relative;
         }
 
-        .section-title span {
-            background: #fff;
-            padding-right: 16px;
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #dccbc2;
+            margin: 8px auto 0;
         }
 
-        /* ---------- День свадьбы ---------- */
+        /* ---------- РАСПИСАНИЕ ---------- */
         .schedule-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 8px;
             text-align: center;
-            margin: 10px 0 16px;
         }
 
         .schedule-item {
-            background: #f9f5f0;
+            background: rgba(249, 245, 240, 0.6);
             border-radius: 16px;
-            padding: 16px 6px;
+            padding: 14px 6px;
             transition: 0.2s;
+            border: 1px solid rgba(210, 185, 170, 0.1);
         }
 
         .schedule-item .label {
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #9d7d70;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .schedule-item .value {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             color: #2d201e;
-            margin-top: 6px;
+            margin-top: 4px;
             font-family: 'Playfair Display', serif;
         }
 
         .schedule-item .value small {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 400;
             font-family: 'Montserrat', sans-serif;
         }
@@ -240,38 +270,96 @@
         .map-wrapper {
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(60, 40, 30, 0.08);
-            margin: 10px 0 16px;
-            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 12px 0 14px;
         }
 
         .map-wrapper iframe {
             width: 100%;
-            height: 350px;
+            height: 280px;
             border: 0;
             display: block;
         }
 
+        .address-block {
+            background: rgba(249, 245, 240, 0.5);
+            border-radius: 20px;
+            padding: 18px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            border: 1px solid rgba(210, 185, 170, 0.1);
+        }
+
+        .address-block .addr {
+            font-size: 17px;
+            font-weight: 400;
+            font-family: 'Playfair Display', serif;
+            color: #2d201e;
+        }
+
+        .address-block .addr strong {
+            font-weight: 700;
+            display: block;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #9d7d70;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 2px;
+        }
+
+        .address-block .addr .wait {
+            font-size: 14px;
+            font-weight: 300;
+            color: #6f5347;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 4px;
+        }
+
+        .btn-route {
+            background: #2d201e;
+            color: #fff;
+            border: none;
+            border-radius: 40px;
+            padding: 10px 30px;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.25s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-route:hover {
+            background: #4f3833;
+            transform: scale(1.03);
+        }
+
         .map-actions {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 12px;
         }
 
         .btn-map {
             display: inline-block;
-            font-size: 14px;
-            font-weight: 500;
-            color: #b29586;
+            font-size: 13px;
+            font-weight: 400;
+            color: #6f5347;
             text-decoration: none;
             border: 1px solid #dccbc2;
             border-radius: 40px;
-            padding: 8px 28px;
+            padding: 6px 24px;
             transition: 0.25s;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.5);
             cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .btn-map:hover {
@@ -291,108 +379,68 @@
             border-color: #4f3833;
         }
 
-        /* ---------- Как нас найти ---------- */
-        .address-block {
-            background: #f9f5f0;
-            border-radius: 24px;
-            padding: 24px 28px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .address-block .addr {
-            font-size: 18px;
-            font-weight: 400;
-            font-family: 'Playfair Display', serif;
-            color: #2d201e;
-        }
-
-        .address-block .addr strong {
-            font-weight: 700;
-            display: block;
-            font-size: 14px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #9d7d70;
-            font-family: 'Montserrat', sans-serif;
-            margin-bottom: 4px;
-        }
-
-        .btn-route {
-            background: #2d201e;
-            color: #fff;
-            border: none;
-            border-radius: 40px;
-            padding: 12px 32px;
-            font-weight: 500;
-            font-size: 14px;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: 0.25s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-route:hover {
-            background: #4f3833;
-            transform: scale(1.02);
-        }
-
-        /* ---------- Пожелание ---------- */
+        /* ---------- ПОЖЕЛАНИЕ ---------- */
         .wish-block {
-            background: #fdfaf8;
-            border-left: 4px solid #dccbc2;
-            padding: 22px 28px;
-            border-radius: 0 20px 20px 0;
-            font-size: 16px;
-            line-height: 1.8;
+            background: rgba(253, 250, 248, 0.6);
+            border-left: 3px solid #c9a88b;
+            padding: 20px 26px;
+            border-radius: 0 16px 16px 0;
+            font-size: 15px;
+            line-height: 1.9;
             color: #3a2c2a;
+            font-weight: 300;
         }
 
         .wish-block strong {
-            font-weight: 600;
+            font-weight: 500;
             color: #2d201e;
         }
 
         .wish-block .highlight {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
+            font-family: 'Great Vibes', cursive;
+            font-size: 22px;
             color: #a67b6b;
-            font-size: 18px;
         }
 
-        /* ---------- Адаптивность ---------- */
-        @media (max-width: 650px) {
+        /* ---------- ПОДВАЛ ---------- */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #c9a88b;
+            font-size: 20px;
+            letter-spacing: 10px;
+            border-top: 1px solid rgba(200, 180, 168, 0.2);
+            padding-top: 22px;
+            font-weight: 300;
+        }
+
+        /* ---------- АДАПТИВ ---------- */
+        @media (max-width: 700px) {
             .card {
-                padding: 30px 20px 40px;
+                padding: 30px 20px 35px;
+                border-radius: 28px;
             }
 
-            .header h1 {
-                font-size: 34px;
+            .header .names {
+                font-size: 40px;
             }
-            .header h1 .ampersand {
-                font-size: 38px;
+            .header .names .ampersand {
+                font-size: 36px;
             }
             .header .date-big {
-                font-size: 22px;
-                letter-spacing: 4px;
+                font-size: 20px;
+                letter-spacing: 5px;
             }
 
             .schedule-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 10px;
+                gap: 8px;
             }
 
             .address-block {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 18px;
-            }
-
-            .address-block .addr {
-                font-size: 16px;
+                gap: 14px;
             }
 
             .btn-route {
@@ -400,72 +448,43 @@
                 text-align: center;
             }
 
-            .section-title {
-                font-size: 19px;
-            }
-
             .timer-item .number {
-                font-size: 32px;
+                font-size: 28px;
             }
-
-            .timer-grid {
-                gap: 12px;
-            }
-
             .timer-item {
-                padding: 10px 16px;
-                min-width: 65px;
+                padding: 8px 14px;
+                min-width: 60px;
             }
 
             .map-wrapper iframe {
-                height: 250px;
+                height: 200px;
             }
         }
 
         @media (max-width: 420px) {
-            .header h1 {
+            .header .names {
+                font-size: 30px;
+            }
+            .header .names .ampersand {
                 font-size: 28px;
+                margin: 0 4px;
             }
             .schedule-item .value {
-                font-size: 16px;
-            }
-            .btn-map {
-                font-size: 12px;
-                padding: 6px 20px;
+                font-size: 14px;
             }
             .timer-item .number {
-                font-size: 26px;
+                font-size: 22px;
             }
-            .timer-item {
-                padding: 8px 12px;
-                min-width: 55px;
+            .card {
+                padding: 20px 14px 28px;
             }
-        }
-
-        /* ---------- Анимация ---------- */
-        .card {
-            animation: fadeUp 0.8s ease-out;
-        }
-
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
+            .wish-block {
+                padding: 16px 18px;
+                font-size: 14px;
             }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+            .wish-block .highlight {
+                font-size: 18px;
             }
-        }
-
-        .footer-ornament {
-            text-align: center;
-            margin-top: 30px;
-            color: #d4b8a8;
-            font-size: 14px;
-            letter-spacing: 8px;
-            border-top: 1px solid #eee5df;
-            padding-top: 25px;
         }
     </style>
 </head>
@@ -473,14 +492,17 @@
 
 <div class="card">
 
-    <!-- ===== HEADER ===== -->
+    <!-- Декоративный орнамент сверху -->
+    <div class="ornament-top">❀ ❁ ❀</div>
+
+    <!-- ===== ШАПКА ===== -->
     <div class="header">
         <div class="subtitle">Мы женимся!</div>
-        <h1>
+        <div class="names">
             Дмитрий
             <span class="ampersand">&</span>
             Дарина
-        </h1>
+        </div>
         <div class="date-big">26.09.26</div>
         <div class="tagline">
             Этот день станет началом нашей новой истории.<br>
@@ -516,7 +538,7 @@
 
     <!-- ===== ДЕНЬ СВАДЬБЫ ===== -->
     <div class="section">
-        <div class="section-title"><span>День свадьбы</span></div>
+        <div class="section-title">День свадьбы</div>
 
         <div class="schedule-grid">
             <div class="schedule-item">
@@ -533,30 +555,27 @@
             </div>
             <div class="schedule-item">
                 <div class="label">Далее</div>
-                <div class="value">праздничный ужин<br><small>и танцы</small></div>
+                <div class="value">ужин &amp; танцы</div>
             </div>
         </div>
     </div>
 
-    <!-- ===== КАРТА ===== -->
+    <!-- ===== КАРТА И АДРЕС ===== -->
     <div class="section">
-        <div class="section-title"><span>Как нас найти</span></div>
+        <div class="section-title">Как нас найти</div>
 
-        <div class="address-block" style="margin-bottom: 16px;">
+        <div class="address-block">
             <div class="addr">
                 <strong>ЗАГС</strong>
                 1 Майская, 20
-                <div style="font-size: 14px; font-weight: 300; margin-top: 6px; color: #6f5347;">
-                    Мы будем ждать вас!
-                </div>
+                <div class="wait">Мы будем ждать вас!</div>
             </div>
             <a href="#" class="btn-route" id="routeBtn">Построить маршрут</a>
         </div>
 
-        <!-- ВСТАВЛЕННАЯ КАРТА (Яндекс) -->
         <div class="map-wrapper">
             <iframe 
-                src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&source=constructor" 
+                src="https://yandex.ru/map-widget/v1/?text=1%20Майская%2C%2020&z=16&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fll%3D37.588%252C55.734%26spn%3D0.001%252C0.001&source=constructor" 
                 allowfullscreen>
             </iframe>
         </div>
@@ -569,7 +588,7 @@
 
     <!-- ===== ПОЖЕЛАНИЕ ===== -->
     <div class="section">
-        <div class="section-title"><span>Пожелание</span></div>
+        <div class="section-title">Пожелание</div>
 
         <div class="wish-block">
             <strong>Самый ценный для нас подарок — ваше присутствие!</strong><br>
@@ -579,17 +598,15 @@
         </div>
     </div>
 
-    <!-- ===== НИЖНИЙ ДЕКОР ===== -->
-    <div class="footer-ornament">
-        ❀ ❁ ❀
-    </div>
+    <!-- ===== ПОДВАЛ ===== -->
+    <div class="footer">❀ ❁ ❀</div>
 
 </div>
 
 <!-- ===== СКРИПТЫ ===== -->
 <script>
     (function() {
-        // ---------- 1. ТАЙМЕР ----------
+        // ---------- ТАЙМЕР ----------
         const weddingDate = new Date('2026-09-26T16:20:00').getTime();
 
         function updateTimer() {
@@ -597,7 +614,6 @@
             let diff = weddingDate - now;
 
             if (diff < 0) {
-                // Свадьба уже прошла
                 document.getElementById('timerDays').textContent = '00';
                 document.getElementById('timerHours').textContent = '00';
                 document.getElementById('timerMinutes').textContent = '00';
@@ -624,49 +640,26 @@
         updateTimer();
         setInterval(updateTimer, 1000);
 
-        // ---------- 2. КАРТА И МАРШРУТЫ ----------
+        // ---------- КАРТА ----------
         const address = '1 Майская, 20';
         const encoded = encodeURIComponent(address);
-
-        // Яндекс.Карты (прямая ссылка)
         const yandexUrl = `https://yandex.ru/maps/?text=${encoded}`;
-        // Google Карты
         const googleUrl = `https://www.google.com/maps/search/?api=1&query=${encoded}`;
 
-        // Кнопка "Построить маршрут"
         document.getElementById('routeBtn').addEventListener('click', function(e) {
             e.preventDefault();
             window.open(yandexUrl, '_blank');
         });
 
-        // Кнопка "Открыть в Яндекс.Картах"
         document.getElementById('openYandexBtn').addEventListener('click', function(e) {
             e.preventDefault();
             window.open(yandexUrl, '_blank');
         });
 
-        // Кнопка "Открыть в Google Картах"
         document.getElementById('openGoogleBtn').addEventListener('click', function(e) {
             e.preventDefault();
             window.open(googleUrl, '_blank');
         });
-
-        // ---------- 3. ЗАМЕНА iframe НА РЕАЛЬНУЮ КАРТУ ----------
-        // Сейчас в iframe заглушка. Чтобы вставить реальную карту:
-        // 1. Зайдите на Яндекс.Карты
-        // 2. Найдите "1 Майская, 20"
-        // 3. Нажмите "Поделиться" → "Встроить карту"
-        // 4. Скопируйте src и вставьте вместо текущего
-        // 
-        // ИЛИ используйте этот готовый вариант с открытой картой:
-        const mapIframe = document.querySelector('.map-wrapper iframe');
-        // Раскомментируйте строку ниже, чтобы использовать карту с меткой:
-        // mapIframe.src = `https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&source=constructor`;
-        // 
-        // А это альтернативный вариант с отображением адреса на карте (более точный):
-        mapIframe.src = `https://yandex.ru/map-widget/v1/?text=${encoded}&z=16&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fll%3D37.588%252C55.734%26spn%3D0.001%252C0.001&source=constructor`;
-        // ↑ Этот вариант показывает карту с центром по адресу, но без метки.
-        // Чтобы поставить метку — нужно получить координаты вручную.
     })();
 </script>
 
