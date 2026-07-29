@@ -519,3 +519,367 @@ body{
 }
 
 } 
+// Плавное появление блоков
+
+const sections = document.querySelectorAll(".section");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+}, {
+
+    threshold: 0.15
+
+});
+
+sections.forEach(section => {
+
+    observer.observe(section);
+
+});
+
+// Плавная стрелка вниз
+
+const arrow = document.querySelector(".scroll");
+
+arrow.addEventListener("click", () => {
+
+    document.querySelector("#day").scrollIntoView({
+
+        behavior: "smooth"
+
+    });
+
+});
+/* ====================================
+   Анимация появления блоков
+==================================== */
+
+.section{
+
+    opacity:0;
+
+    transform:translateY(70px);
+
+    transition:1s ease;
+
+}
+
+.section.show{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+/* ====================================
+   Hero всегда виден
+==================================== */
+
+.hero{
+
+    opacity:1 !important;
+
+}
+
+/* ====================================
+   Лёгкое покачивание иллюстрации
+==================================== */
+
+.couple img{
+
+    animation:coupleFloat 6s ease-in-out infinite;
+
+}
+
+@keyframes coupleFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ====================================
+   Плавное вращение сердца
+==================================== */
+
+.heart{
+
+    display:inline-block;
+
+    animation:heartBeat 2s infinite;
+
+}
+
+@keyframes heartBeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    20%{
+
+        transform:scale(1.25);
+
+    }
+
+    40%{
+
+        transform:scale(1);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ====================================
+   Бумажная текстура
+==================================== */
+
+.paper::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    radial-gradient(rgba(0,0,0,.02) 1px, transparent 1px);
+
+    background-size:8px 8px;
+
+    opacity:.4;
+
+    pointer-events:none;
+
+} 
+<section id="day" class="section">
+
+    <div class="section-title">
+
+        <span></span>
+        <h2>День свадьбы</h2>
+        <span></span>
+
+    </div>
+
+    <div class="schedule">
+
+        <div class="schedule-item">
+
+            <div class="time">
+                14:30
+            </div>
+
+            <div class="content">
+
+                <h3>Регистрация</h3>
+
+                <p>
+                    Дворец бракосочетания
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="schedule-item">
+
+            <div class="time">
+                16:00
+            </div>
+
+            <div class="content">
+
+                <h3>Сбор гостей</h3>
+
+                <p>
+                    Welcome drink
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="schedule-item">
+
+            <div class="time">
+                17:00
+            </div>
+
+            <div class="content">
+
+                <h3>Праздничный ужин</h3>
+
+                <p>
+                    Банкет • Танцы • Веселье
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section> 
+<section id="day" class="section">
+
+    <div class="section-title">
+
+        <span></span>
+        <h2>День свадьбы</h2>
+        <span></span>
+
+    </div>
+
+    <div class="schedule">
+
+        <div class="schedule-item">
+
+            <div class="time">
+                14:30
+            </div>
+
+            <div class="content">
+
+                <h3>Регистрация</h3>
+
+                <p>
+                    Дворец бракосочетания
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="schedule-item">
+
+            <div class="time">
+                16:00
+            </div>
+
+            <div class="content">
+
+                <h3>Сбор гостей</h3>
+
+                <p>
+                    Welcome drink
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="schedule-item">
+
+            <div class="time">
+                17:00
+            </div>
+
+            <div class="content">
+
+                <h3>Праздничный ужин</h3>
+
+                <p>
+                    Банкет • Танцы • Веселье
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section> 
+<section class="hero">
+
+    <div class="hero-decoration left"></div>
+    <div class="hero-decoration right"></div>
+
+    <div class="hero-inner">
+
+        <div class="hero-subtitle">
+
+            Мы женимся!
+
+        </div>
+
+        <div class="hero-names">
+
+            <h1>Дмитрий</h1>
+
+            <div class="hero-and">
+                &
+            </div>
+
+            <h1>Дарина</h1>
+
+        </div>
+
+        <div class="hero-date">
+
+            <span>26</span>
+
+            <div class="dot"></div>
+
+            <span>09</span>
+
+            <div class="dot"></div>
+
+            <span>2026</span>
+
+        </div>
+
+        <img class="hero-couple"
+             src="assets/couple.png"
+             alt="">
+
+        <div class="hero-heart">
+
+            ♡
+
+        </div>
+
+        <div class="scroll">
+
+            ↓
+
+        </div>
+
+    </div>
+
+</section> 
