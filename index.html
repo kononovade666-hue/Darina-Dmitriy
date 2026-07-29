@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Свадьба | Дмитрий & Дарина</title>
-    
+
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
-    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+
     <style>
-        /* ----- СБРОС И БАЗА ----- */
+        /* ----- БАЗА ----- */
         * {
             margin: 0;
             padding: 0;
@@ -20,796 +20,412 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(145deg, #f0f8ff 0%, #e6f0fa 100%);
-            color: #1a2a3a;
-            line-height: 1.6;
+            background: #f7f3f0;
+            color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            position: relative;
+            padding: 20px;
         }
 
-        /* Декоративный фон */
-        body::before {
-            content: '❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋ ❋';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            font-size: 18px;
-            letter-spacing: 12px;
-            color: rgba(173, 216, 230, 0.12);
-            pointer-events: none;
-            padding: 20px 0;
-            font-family: 'Playfair Display', serif;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ----- ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ----- */
-        .divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin: 20px 0;
-        }
-        .divider-line {
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #b0d4e8, transparent);
-        }
-        .divider-icon {
-            font-size: 22px;
-            color: #7ab3d4;
-            letter-spacing: 6px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* ----- ГЕРОЙ ----- */
-        .hero {
-            text-align: center;
-            padding: 30px 0 16px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 15px;
-            color: #7ab3d4;
-            letter-spacing: 3px;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 4px 28px;
-            border-radius: 40px;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(173, 216, 230, 0.2);
-        }
-
-        .hero-floral {
-            font-size: 34px;
-            opacity: 0.3;
-            margin: 6px 0 2px;
-            letter-spacing: 14px;
-            color: #7ab3d4;
-            user-select: none;
-        }
-
-        .name-ornament {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin: 4px 0;
-        }
-        .name-ornament .orn {
-            color: #b0d4e8;
-            font-size: 13px;
-            opacity: 0.4;
-            letter-spacing: 4px;
-        }
-
-        .hero-names {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(48px, 10vw, 80px);
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.1;
-            margin: 8px 0 4px;
-            color: #1a2a3a;
-            text-shadow: 0 2px 20px rgba(122, 179, 212, 0.1);
-        }
-
-        .hero-names .ampersand {
-            color: #7ab3d4;
-            font-weight: 400;
-            margin: 0 8px;
-            font-style: italic;
-        }
-
-        .hero-date {
-            font-size: 18px;
-            font-weight: 300;
-            color: #4a6a7a;
-            letter-spacing: 3px;
-            margin-top: 2px;
-        }
-
-        .hero-date strong {
-            font-weight: 500;
-            color: #1a2a3a;
-            background: rgba(255, 255, 255, 0.4);
-            padding: 2px 16px;
-            border-radius: 40px;
-            border: 1px solid rgba(173, 216, 230, 0.2);
-        }
-
-        .name-wreath {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin: 2px 0 0;
-        }
-        .name-wreath .wreath-icon {
-            color: #b0d4e8;
-            font-size: 18px;
-            opacity: 0.5;
-            letter-spacing: 4px;
-        }
-
-        /* ----- ТАЙМЕР ----- */
-        .timer-section {
-            padding: 8px 0 16px;
-        }
-
-        .timer-container {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(8px);
-            border-radius: 40px;
-            padding: 24px 32px;
-            text-align: center;
-            border: 1px solid rgba(173, 216, 230, 0.2);
+        /* ----- КАРТОЧКА (ОСНОВНОЙ БЛОК) ----- */
+        .card {
             max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 8px 32px rgba(122, 179, 212, 0.08);
-        }
-
-        .timer-label {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 16px;
-            color: #7ab3d4;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-
-        .timer-grid {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .timer-item {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            padding: 12px 16px;
-            min-width: 70px;
-            border: 1px solid rgba(173, 216, 230, 0.15);
-        }
-
-        .timer-item .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 38px;
-            font-weight: 700;
-            color: #1a2a3a;
-            line-height: 1;
-            display: block;
-        }
-
-        .timer-item .label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #7ab3d4;
-            font-weight: 500;
-            margin-top: 4px;
-            display: block;
-        }
-
-        .timer-separator {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: #b0d4e8;
-            font-weight: 300;
-            align-self: center;
-        }
-
-        /* ----- КАРТОЧКА ПРИГЛАШЕНИЯ ----- */
-        .invitation-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 48px;
-            padding: 44px 40px;
-            box-shadow: 0 20px 60px -20px rgba(122, 179, 212, 0.2),
-                        0 0 0 1px rgba(173, 216, 230, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            margin: 16px 0 32px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            position: relative;
-        }
-
-        .invitation-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 30px 80px -30px rgba(122, 179, 212, 0.25);
-        }
-
-        .invitation-card::before {
-            content: '◈ ◈ ◈';
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #f0f8ff;
-            padding: 0 24px;
-            color: #8ec9e6;
-            font-size: 15px;
-            letter-spacing: 8px;
-            border-radius: 40px;
-            border: 1px solid rgba(173, 216, 230, 0.2);
-        }
-
-        .invitation-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 400;
-            text-align: center;
-            color: #1a2a3a;
-            line-height: 1.6;
-            margin-bottom: 12px;
-        }
-
-        .invitation-text .highlight {
-            color: #7ab3d4;
-            font-weight: 600;
-            font-style: italic;
-        }
-
-        .invitation-text .names-invite {
-            font-weight: 600;
-            color: #1a2a3a;
-        }
-
-        /* Детали */
-        .invitation-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin: 20px 0 16px;
-            text-align: center;
-        }
-
-        .detail-item {
-            padding: 16px 12px;
-            border-radius: 28px;
-            background: rgba(240, 248, 255, 0.6);
-            border: 1px solid rgba(173, 216, 230, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .detail-item:hover {
-            background: rgba(255, 255, 255, 0.8);
-            border-color: #b0d4e8;
-            transform: scale(1.02);
-        }
-
-        .detail-item .label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            color: #7ab3d4;
-            font-weight: 500;
-        }
-
-        .detail-item .value {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 600;
-            margin-top: 2px;
-            color: #1a2a3a;
-        }
-
-        .detail-item .value small {
-            font-size: 15px;
-            font-weight: 400;
-            color: #4a6a7a;
-        }
-
-        .detail-icon {
-            display: block;
-            font-size: 26px;
-            margin-bottom: 2px;
-        }
-
-        /* ----- КНОПКА RSVP ----- */
-        .rsvp-wrapper {
-            text-align: center;
-            margin: 20px 0 2px;
-        }
-
-        .btn-rsvp {
-            background: linear-gradient(135deg, #7ab3d4, #5a9bc0);
-            color: #fff;
-            border: none;
-            padding: 14px 56px;
-            border-radius: 60px;
-            font-size: 17px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 28px rgba(122, 179, 212, 0.35);
-            font-family: 'Inter', sans-serif;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-rsvp:hover {
-            background: linear-gradient(135deg, #6aa5c8, #4a8fb8);
-            transform: scale(1.03);
-            box-shadow: 0 12px 40px rgba(122, 179, 212, 0.45);
-        }
-
-        .btn-rsvp:active {
-            transform: scale(0.96);
-        }
-
-        .rsvp-hint {
-            font-size: 13px;
-            color: #7ab3d4;
-            margin-top: 10px;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        /* ----- КАРТА ----- */
-        .map-section {
-            padding: 8px 0 28px;
-        }
-
-        .section-label {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 17px;
-            color: #7ab3d4;
-            letter-spacing: 3px;
-            margin-bottom: 2px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 600;
-            color: #1a2a3a;
-            margin-bottom: 20px;
-        }
-
-        .map-container {
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 12px 40px rgba(122, 179, 212, 0.1);
-            border: 2px solid rgba(173, 216, 230, 0.2);
-            background: #e6f0fa;
-            position: relative;
-        }
-
-        .map-container iframe {
-            display: block;
             width: 100%;
-            height: 380px;
-            border: none;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 40px 36px 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.04);
         }
 
-        .map-address {
-            text-align: center;
-            padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(4px);
-            border-top: 1px solid rgba(173, 216, 230, 0.15);
-            font-size: 16px;
-            color: #1a2a3a;
-            font-weight: 500;
-        }
-
-        .map-address span {
-            color: #7ab3d4;
-            font-weight: 400;
-        }
-
-        .map-address .address-icon {
-            margin-right: 8px;
-        }
-
-        /* ----- ПРОГРАММА ----- */
-        .schedule {
-            padding: 8px 0 28px;
-        }
-
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            max-width: 620px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 14px 22px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(4px);
-            border-radius: 24px;
-            border-left: 4px solid #7ab3d4;
-            box-shadow: 0 4px 16px rgba(122, 179, 212, 0.06);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateX(6px);
-            border-left-color: #5a9bc0;
-        }
-
-        .timeline-time {
-            font-weight: 600;
-            font-size: 17px;
-            color: #1a2a3a;
-            min-width: 75px;
+        /* ----- ЗАГОЛОВОК "МЫ ЖЕНИМСЯ!" ----- */
+        .main-title {
             font-family: 'Playfair Display', serif;
-            color: #5a9bc0;
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: 4px;
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 12px;
         }
 
-        .timeline-event {
-            font-size: 15px;
-            color: #1a2a3a;
-        }
-
-        .timeline-event small {
-            color: #4a6a7a;
-            font-size: 13px;
+        .main-title span {
             display: block;
-            font-weight: 300;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 6px;
+            color: #b0a8a0;
+            margin-top: 4px;
+            font-family: 'Inter', sans-serif;
         }
 
-        .timeline-icon {
-            font-size: 22px;
-            opacity: 0.6;
-        }
-
-        /* ----- ПОДВАЛ ----- */
-        .footer {
-            text-align: center;
-            padding: 28px 0 24px;
-            border-top: 1px solid rgba(173, 216, 230, 0.2);
-            margin-top: 8px;
-        }
-
-        .footer-hearts {
-            font-size: 16px;
-            letter-spacing: 12px;
-            color: #b0d4e8;
-            margin-bottom: 8px;
-        }
-
-        .footer-names {
+        /* ----- ИМЕНА (КРУПНО) ----- */
+        .names {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: #1a2a3a;
-            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: 48px;
+            text-align: center;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin: 4px 0 2px;
+        }
+
+        .names .ampersand {
+            display: block;
+            font-size: 28px;
+            font-weight: 400;
+            color: #b0a8a0;
             margin: 2px 0;
         }
 
-        .footer-names span {
-            color: #7ab3d4;
-            margin: 0 6px;
+        /* ----- ДАТА (КРУПНО) ----- */
+        .date-big {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 38px;
+            text-align: center;
+            color: #1a1a1a;
+            letter-spacing: 2px;
+            margin: 6px 0 12px;
         }
 
-        .footer p {
-            font-size: 13px;
-            color: #7ab3d4;
+        /* ----- ТЕКСТ-ОПИСАНИЕ ----- */
+        .description {
+            font-size: 15px;
+            text-align: center;
+            color: #4a4a4a;
+            line-height: 1.7;
+            max-width: 400px;
+            margin: 0 auto 16px;
             font-weight: 300;
+            letter-spacing: 0.2px;
+        }
+
+        /* ----- РАЗДЕЛИТЕЛЬНАЯ ЛИНИЯ ----- */
+        .divider {
+            border: none;
+            border-top: 1px solid #e8e4e0;
+            margin: 20px 0 18px;
+        }
+
+        /* ----- БЛОК "ДЕНЬ СВАДЬБЫ" ----- */
+        .block-label {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 3px;
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 14px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            text-align: center;
+            background: #f8f5f2;
+            border-radius: 16px;
+            padding: 14px 10px;
+            margin-bottom: 6px;
+        }
+
+        .info-grid .item .label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b0a8a0;
+            font-weight: 500;
+        }
+
+        .info-grid .item .value {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 2px;
+        }
+
+        .info-grid .item .value small {
+            font-size: 13px;
+            font-weight: 400;
+            color: #6a6a6a;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 4px 4px;
+            font-size: 14px;
+            color: #4a4a4a;
+            border-bottom: 1px solid #f0ece8;
+        }
+
+        .info-row .addr {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .info-row .map-link {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            border: 1px solid #d0c8c0;
+            padding: 6px 18px;
+            border-radius: 40px;
+            transition: all 0.2s;
+        }
+
+        .info-row .map-link:hover {
+            background: #1a1a1a;
+            color: #fff;
+            border-color: #1a1a1a;
+        }
+
+        /* ----- БЛОК "КАК НАС НАЙТИ" ----- */
+        .find-block {
+            margin-top: 18px;
+        }
+
+        .find-block .address-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1a1a1a;
+            padding: 6px 0;
+        }
+
+        .find-block .address-line .icon {
+            font-size: 20px;
+        }
+
+        .find-block .sub-text {
+            text-align: center;
+            font-size: 14px;
+            color: #6a6a6a;
+            font-weight: 300;
+            margin: 4px 0 12px;
+        }
+
+        .btn-route {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 60px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-route:hover {
+            background: #333;
+        }
+
+        /* ----- БЛОК "ПОЖЕЛАНИЕ" ----- */
+        .wish-block {
+            margin-top: 22px;
+        }
+
+        .wish-block .wish-text {
+            font-size: 15px;
+            text-align: center;
+            color: #4a4a4a;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .wish-block .wish-text strong {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .wish-block .wish-text .highlight {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        /* ----- БЛОК "ДАЛЕЕ" (нижний) ----- */
+        .further-block {
+            margin-top: 18px;
+            text-align: center;
+            padding-top: 12px;
+            border-top: 1px solid #e8e4e0;
+        }
+
+        .further-block .further-label {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 4px;
+            color: #1a1a1a;
+        }
+
+        .further-block .further-text {
+            font-size: 15px;
+            color: #4a4a4a;
+            font-weight: 300;
+            margin-top: 4px;
             letter-spacing: 0.5px;
         }
 
-        /* ----- АНИМАЦИЯ ----- */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .invitation-card { animation: fadeUp 0.8s ease-out; }
-        .hero { animation: fadeUp 0.6s ease-out; }
-        .timer-container { animation: fadeUp 0.7s ease-out; }
-        .map-container { animation: fadeUp 0.7s ease-out; }
-
         /* ----- АДАПТИВ ----- */
-        @media (max-width: 640px) {
-            .invitation-card {
-                padding: 28px 16px;
-                border-radius: 32px;
+        @media (max-width: 500px) {
+            .card {
+                padding: 28px 18px 24px;
+                border-radius: 24px;
             }
-            .invitation-card::before {
-                font-size: 11px;
-                padding: 0 14px;
-                top: -12px;
+            .names {
+                font-size: 36px;
             }
-            .invitation-text { font-size: 19px; }
-            .detail-item .value { font-size: 17px; }
-            .timeline-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 2px;
-                padding: 12px 16px;
+            .names .ampersand {
+                font-size: 22px;
             }
-            .timeline-time { min-width: auto; font-size: 15px; }
-            .hero-names { font-size: 38px; }
-            .hero-floral { font-size: 24px; letter-spacing: 8px; }
-            .btn-rsvp {
-                padding: 12px 32px;
+            .date-big {
+                font-size: 30px;
+            }
+            .main-title {
+                font-size: 22px;
+            }
+            .info-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                padding: 12px 6px;
+            }
+            .info-grid .item .value {
                 font-size: 15px;
-                width: 100%;
             }
-            .timer-container { padding: 18px 16px; }
-            .timer-item .number { font-size: 28px; }
-            .timer-item { min-width: 56px; padding: 8px 12px; }
-            .timer-separator { font-size: 24px; }
-            .map-container iframe { height: 220px; }
-            .section-title { font-size: 26px; }
-            .name-wreath { gap: 12px; }
-            .name-wreath .wreath-icon { font-size: 14px; }
+            .info-row {
+                flex-wrap: wrap;
+                gap: 8px;
+                justify-content: center;
+            }
+            .info-row .map-link {
+                padding: 4px 14px;
+                font-size: 12px;
+            }
+            .btn-route {
+                padding: 12px;
+                font-size: 14px;
+            }
         }
 
-        @media (min-width: 641px) and (max-width: 900px) {
-            .invitation-card { padding: 36px 28px; }
-            .map-container iframe { height: 300px; }
+        @media (max-width: 380px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+            .names {
+                font-size: 30px;
+            }
+            .date-big {
+                font-size: 26px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="card">
 
-        <!-- ===== ГЕРОЙ ===== -->
-        <section class="hero">
-            <div class="hero-badge">✧ Save the Date ✧</div>
-            <div class="hero-floral">✿ ✿ ✿</div>
+        <!-- ===== ЗАГОЛОВОК ===== -->
+        <h1 class="main-title">
+            МЫ ЖЕНИМСЯ!
+            <span>—</span>
+        </h1>
 
-            <div class="name-ornament">
-                <span class="orn">❧</span>
-                <span class="orn">✿</span>
-                <span class="orn">❧</span>
+        <!-- ===== ИМЕНА ===== -->
+        <div class="names">
+            Дмитрий
+            <span class="ampersand">и</span>
+            Дарина
+        </div>
+
+        <!-- ===== ДАТА ===== -->
+        <div class="date-big">26.09.26</div>
+
+        <!-- ===== ТЕКСТ ===== -->
+        <p class="description">
+            Этот день станет началом нашей новой истории.<br />
+            Мы будем счастливы разделить его с самыми близкими.
+        </p>
+
+        <hr class="divider" />
+
+        <!-- ===== БЛОК: ДЕНЬ СВАДЬБЫ ===== -->
+        <div class="block-label">ДЕНЬ СВАДЬБЫ</div>
+
+        <div class="info-grid">
+            <div class="item">
+                <div class="label">ЗАГС</div>
+                <div class="value" style="font-size:13px; font-weight:400; font-family:'Inter',sans-serif;">1 Майская, 20</div>
             </div>
-
-            <h1 class="hero-names">
-                <span>Дмитрий</span>
-                <span class="ampersand">✦</span>
-                <span>Дарина</span>
-            </h1>
-
-            <div class="name-wreath">
-                <span class="wreath-icon">◈</span>
-                <span class="wreath-icon">✧</span>
-                <span class="wreath-icon">◈</span>
+            <div class="item">
+                <div class="label">СБОР ГОСТЕЙ</div>
+                <div class="value">к 16:00</div>
             </div>
-
-            <p class="hero-date">
-                <strong>26 сентября 2026</strong> &nbsp;·&nbsp; 16:00
-            </p>
-
-            <div class="divider">
-                <span class="divider-line"></span>
-                <span class="divider-icon">◈</span>
-                <span class="divider-line"></span>
-            </div>
-        </section>
-
-        <!-- ===== ТАЙМЕР ===== -->
-        <section class="timer-section">
-            <div class="timer-container">
-                <div class="timer-label">До нашего дня осталось</div>
-                <div class="timer-grid" id="timer">
-                    <div class="timer-item">
-                        <span class="number" id="days">--</span>
-                        <span class="label">Дней</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-item">
-                        <span class="number" id="hours">--</span>
-                        <span class="label">Часов</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-item">
-                        <span class="number" id="minutes">--</span>
-                        <span class="label">Минут</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-item">
-                        <span class="number" id="seconds">--</span>
-                        <span class="label">Секунд</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== КАРТОЧКА ПРИГЛАШЕНИЯ ===== -->
-        <div class="invitation-card">
-            <p class="invitation-text">
-                Дорогие наши!<br />
-                <span class="names-invite">Дмитрий</span> и <span class="names-invite">Дарина</span><br />
-                приглашают вас разделить с ними <span class="highlight">день любви</span> —<br />
-                самый светлый и нежный в их жизни.
-            </p>
-
-            <div class="invitation-details">
-                <div class="detail-item">
-                    <span class="detail-icon">📅</span>
-                    <div class="label">Дата</div>
-                    <div class="value">26 сентября 2026</div>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-icon">🕊️</span>
-                    <div class="label">Сбор гостей</div>
-                    <div class="value">16:00</div>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-icon">💍</span>
-                    <div class="label">Регистрация</div>
-                    <div class="value">16:20</div>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-icon">🏛️</span>
-                    <div class="label">ЗАГС</div>
-                    <div class="value" style="font-size:17px;">ул. 1-я Майская, 20</div>
-                </div>
-            </div>
-
-            <div class="rsvp-wrapper">
-                <button class="btn-rsvp">✨ Подтвердить присутствие</button>
-                <p class="rsvp-hint">Пожалуйста, дайте ответ до 1 сентября</p>
+            <div class="item">
+                <div class="label">ЦЕРЕМОНИЯ</div>
+                <div class="value">16:20</div>
             </div>
         </div>
 
-        <!-- ===== КАРТА ===== -->
-        <section class="map-section">
-            <p class="section-label">◈ Как добраться ◈</p>
-            <h2 class="section-title">Карта проезда</h2>
+        <div class="info-row">
+            <span class="addr">📍 1 Майская, 20</span>
+            <a href="#" class="map-link">СМОТРЕТЬ НА КАРТЕ</a>
+        </div>
 
-            <div class="map-container">
-                <!-- Яндекс.Карты с меткой по адресу: Ростов-на-Дону, 1-я Майская, 20 -->
-                <iframe 
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor" 
-                    allowfullscreen>
-                </iframe>
-                <div class="map-address">
-                    <span class="address-icon">📍</span>
-                    <span>Ростов-на-Дону, ул. 1-я Майская, 20</span>
-                    <span style="display:block; font-size:13px; color:#7ab3d4; font-weight:300; margin-top:4px;">
-                        ЗАГС — вход со стороны парка
-                    </span>
-                </div>
-            </div>
-        </section>
+        <hr class="divider" />
 
-        <!-- ===== ПРОГРАММА ===== -->
-        <section class="schedule">
-            <p class="section-label">◈ Как всё пройдёт ◈</p>
-            <h2 class="section-title">Программа дня</h2>
+        <!-- ===== БЛОК: КАК НАС НАЙТИ ===== -->
+        <div class="find-block">
+            <div class="block-label">КАК НАС НАЙТИ</div>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="timeline-icon">🥂</span>
-                    <span class="timeline-time">16:00</span>
-                    <div class="timeline-event">
-                        Сбор гостей <small>Встреча у ЗАГСа</small>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-icon">💍</span>
-                    <span class="timeline-time">16:20</span>
-                    <div class="timeline-event">
-                        Торжественная регистрация <small>Церемония в ЗАГСе</small>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-icon">📸</span>
-                    <span class="timeline-time">17:00</span>
-                    <div class="timeline-event">
-                        Фотосессия <small>Прогулка по парку</small>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-icon">🍽️</span>
-                    <span class="timeline-time">18:30</span>
-                    <div class="timeline-event">
-                        Банкет <small>Ресторан, живая музыка, танцы</small>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-icon">💃</span>
-                    <span class="timeline-time">21:00</span>
-                    <div class="timeline-event">
-                        Первый танец <small>И зажигательная дискотека!</small>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== ПОДВАЛ ===== -->
-        <footer class="footer">
-            <div class="footer-hearts">♡ ✧ ♡ ✧ ♡</div>
-
-            <div class="footer-names">
-                Дмитрий <span>✦</span> Дарина
+            <div class="address-line">
+                <span class="icon">📍</span>
+                <span>ЗАГС · 1 Майская, 20</span>
             </div>
 
-            <p>
-                С нетерпением ждём вас в этот особенный день!
+            <p class="sub-text">Мы будем ждать вас!</p>
+
+            <button class="btn-route">ПОСТРОИТЬ МАРШРУТ</button>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- ===== БЛОК: ПОЖЕЛАНИЕ ===== -->
+        <div class="wish-block">
+            <div class="block-label">ПОЖЕЛАНИЕ</div>
+
+            <p class="wish-text">
+                <strong>Самый ценный для нас подарок — ваше присутствие!</strong><br /><br />
+                А если вы хотите нас порадовать, будем рады <span class="highlight">денежному подарку</span>.<br />
+                Он поможет нам осуществить наши мечты.
             </p>
-            <p style="margin-top: 6px; font-size: 12px; opacity: 0.5;">
-                ✦ Свадебное приглашение · 2026 ✦
-            </p>
-        </footer>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- ===== БЛОК: ДАЛЕЕ (нижний) ===== -->
+        <div class="further-block">
+            <div class="further-label">ДАЛЕЕ</div>
+            <div class="further-text">праздничный ужин и танцы</div>
+        </div>
 
     </div>
-
-    <!-- ===== ТАЙМЕР (JavaScript) ===== -->
-    <script>
-        (function() {
-            // Дата свадьбы: 26 сентября 2026, 16:00
-            const weddingDate = new Date('2026-09-26T16:00:00').getTime();
-
-            function updateTimer() {
-                const now = Date.now();
-                let diff = weddingDate - now;
-
-                if (diff < 0) {
-                    document.getElementById('days').textContent = '0';
-                    document.getElementById('hours').textContent = '0';
-                    document.getElementById('minutes').textContent = '0';
-                    document.getElementById('seconds').textContent = '0';
-                    return;
-                }
-
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                diff -= days * 1000 * 60 * 60 * 24;
-                const hours = Math.floor(diff / (1000 * 60 * 60));
-                diff -= hours * 1000 * 60 * 60;
-                const minutes = Math.floor(diff / (1000 * 60));
-                diff -= minutes * 1000 * 60;
-                const seconds = Math.floor(diff / 1000);
-
-                document.getElementById('days').textContent = String(days).padStart(2, '0');
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            }
-
-            updateTimer();
-            setInterval(updateTimer, 1000);
-        })();
-    </script>
 
 </body>
 </html>
