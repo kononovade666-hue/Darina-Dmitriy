@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Дмитрий и Дарина | Приглашение на свадьбу</title>
+    
+    <!-- Подключаем элегантные шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    
+    <style>
+        /* ---------- Сброс и база ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f9f5f0;
+            color: #3a2c2a;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+
+        .card {
+            max-width: 800px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 20px 60px rgba(60, 40, 30, 0.12);
+            padding: 50px 40px 60px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .card::before {
+            content: "✦";
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 28px;
+            color: #d4b8a8;
+            opacity: 0.5;
+        }
+
+        /* ---------- Типографика ---------- */
+        h1, h2, h3, .script {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        .script {
+            font-style: italic;
+        }
+
+        /* ---------- Шапка ---------- */
+        .header {
+            text-align: center;
+            border-bottom: 1px solid #eee5df;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #b29586;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.15;
+            color: #2d201e;
+        }
+
+        .header h1 .ampersand {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #c9a494;
+            font-size: 52px;
+            margin: 0 6px;
+        }
+
+        .header .date-big {
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 6px;
+            color: #6f5347;
+            margin-top: 8px;
+        }
+
+        .header .tagline {
+            font-size: 17px;
+            font-weight: 300;
+            color: #5a4340;
+            max-width: 460px;
+            margin: 18px auto 0;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* ---------- ТАЙМЕР ---------- */
+        .timer-section {
+            background: #fdfaf8;
+            border-radius: 24px;
+            padding: 30px 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            border: 1px solid #eee5df;
+        }
+
+        .timer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #3a2c2a;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .timer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .timer-item {
+            background: #fff;
+            border-radius: 16px;
+            padding: 14px 22px;
+            min-width: 80px;
+            box-shadow: 0 2px 12px rgba(60, 40, 30, 0.06);
+            border: 1px solid #f0e8e2;
+        }
+
+        .timer-item .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #2d201e;
+            line-height: 1.1;
+            display: block;
+        }
+
+        .timer-item .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b29586;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .timer-message {
+            margin-top: 18px;
+            font-size: 16px;
+            color: #6f5347;
+            font-weight: 300;
+        }
+
+        .timer-message .highlight-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d201e;
+        }
+
+        /* ---------- Секции ---------- */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #3a2c2a;
+            border-bottom: 1px solid #eee5df;
+            padding-bottom: 10px;
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .section-title span {
+            background: #fff;
+            padding-right: 16px;
+        }
+
+        /* ---------- День свадьбы ---------- */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 8px;
+            text-align: center;
+            margin: 10px 0 16px;
+        }
+
+        .schedule-item {
+            background: #f9f5f0;
+            border-radius: 16px;
+            padding: 16px 6px;
+            transition: 0.2s;
+        }
+
+        .schedule-item .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #9d7d70;
+            font-weight: 600;
+        }
+
+        .schedule-item .value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d201e;
+            margin-top: 6px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .schedule-item .value small {
+            font-size: 14px;
+            font-weight: 400;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ---------- КАРТА ---------- */
+        .map-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(60, 40, 30, 0.08);
+            margin: 10px 0 16px;
+            position: relative;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            display: block;
+        }
+
+        .map-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .btn-map {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #b29586;
+            text-decoration: none;
+            border: 1px solid #dccbc2;
+            border-radius: 40px;
+            padding: 8px 28px;
+            transition: 0.25s;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .btn-map:hover {
+            background: #b29586;
+            color: #fff;
+            border-color: #b29586;
+        }
+
+        .btn-map.primary {
+            background: #2d201e;
+            color: #fff;
+            border-color: #2d201e;
+        }
+
+        .btn-map.primary:hover {
+            background: #4f3833;
+            border-color: #4f3833;
+        }
+
+        /* ---------- Как нас найти ---------- */
+        .address-block {
+            background: #f9f5f0;
+            border-radius: 24px;
+            padding: 24px 28px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .address-block .addr {
+            font-size: 18px;
+            font-weight: 400;
+            font-family: 'Playfair Display', serif;
+            color: #2d201e;
+        }
+
+        .address-block .addr strong {
+            font-weight: 700;
+            display: block;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #9d7d70;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 4px;
+        }
+
+        .btn-route {
+            background: #2d201e;
+            color: #fff;
+            border: none;
+            border-radius: 40px;
+            padding: 12px 32px;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.25s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-route:hover {
+            background: #4f3833;
+            transform: scale(1.02);
+        }
+
+        /* ---------- Пожелание ---------- */
+        .wish-block {
+            background: #fdfaf8;
+            border-left: 4px solid #dccbc2;
+            padding: 22px 28px;
+            border-radius: 0 20px 20px 0;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #3a2c2a;
+        }
+
+        .wish-block strong {
+            font-weight: 600;
+            color: #2d201e;
+        }
+
+        .wish-block .highlight {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #a67b6b;
+            font-size: 18px;
+        }
+
+        /* ---------- Адаптивность ---------- */
+        @media (max-width: 650px) {
+            .card {
+                padding: 30px 20px 40px;
+            }
+
+            .header h1 {
+                font-size: 34px;
+            }
+            .header h1 .ampersand {
+                font-size: 38px;
+            }
+            .header .date-big {
+                font-size: 22px;
+                letter-spacing: 4px;
+            }
+
+            .schedule-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .address-block {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+            }
+
+            .address-block .addr {
+                font-size: 16px;
+            }
+
+            .btn-route {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 19px;
+            }
+
+            .timer-item .number {
+                font-size: 32px;
+            }
+
+            .timer-grid {
+                gap: 12px;
+            }
+
+            .timer-item {
+                padding: 10px 16px;
+                min-width: 65px;
+            }
+
+            .map-wrapper iframe {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .header h1 {
+                font-size: 28px;
+            }
+            .schedule-item .value {
+                font-size: 16px;
+            }
+            .btn-map {
+                font-size: 12px;
+                padding: 6px 20px;
+            }
+            .timer-item .number {
+                font-size: 26px;
+            }
+            .timer-item {
+                padding: 8px 12px;
+                min-width: 55px;
+            }
+        }
+
+        /* ---------- Анимация ---------- */
+        .card {
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer-ornament {
+            text-align: center;
+            margin-top: 30px;
+            color: #d4b8a8;
+            font-size: 14px;
+            letter-spacing: 8px;
+            border-top: 1px solid #eee5df;
+            padding-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+        <div class="subtitle">Мы женимся!</div>
+        <h1>
+            Дмитрий
+            <span class="ampersand">&</span>
+            Дарина
+        </h1>
+        <div class="date-big">26.09.26</div>
+        <div class="tagline">
+            Этот день станет началом нашей новой истории.<br>
+            Мы будем счастливы разделить его с самыми близкими.
+        </div>
+    </div>
+
+    <!-- ===== ТАЙМЕР ===== -->
+    <div class="timer-section">
+        <div class="timer-title">До нашей свадьбы осталось</div>
+        <div class="timer-grid" id="timerGrid">
+            <div class="timer-item">
+                <span class="number" id="timerDays">00</span>
+                <span class="label">Дней</span>
+            </div>
+            <div class="timer-item">
+                <span class="number" id="timerHours">00</span>
+                <span class="label">Часов</span>
+            </div>
+            <div class="timer-item">
+                <span class="number" id="timerMinutes">00</span>
+                <span class="label">Минут</span>
+            </div>
+            <div class="timer-item">
+                <span class="number" id="timerSeconds">00</span>
+                <span class="label">Секунд</span>
+            </div>
+        </div>
+        <div class="timer-message">
+            <span class="highlight-date">26 сентября 2026</span> — мы ждём вас!
+        </div>
+    </div>
+
+    <!-- ===== ДЕНЬ СВАДЬБЫ ===== -->
+    <div class="section">
+        <div class="section-title"><span>День свадьбы</span></div>
+
+        <div class="schedule-grid">
+            <div class="schedule-item">
+                <div class="label">ЗАГС</div>
+                <div class="value">1 Майская, 20</div>
+            </div>
+            <div class="schedule-item">
+                <div class="label">Сбор гостей</div>
+                <div class="value">к 16:00</div>
+            </div>
+            <div class="schedule-item">
+                <div class="label">Церемония</div>
+                <div class="value">16:20</div>
+            </div>
+            <div class="schedule-item">
+                <div class="label">Далее</div>
+                <div class="value">праздничный ужин<br><small>и танцы</small></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== КАРТА ===== -->
+    <div class="section">
+        <div class="section-title"><span>Как нас найти</span></div>
+
+        <div class="address-block" style="margin-bottom: 16px;">
+            <div class="addr">
+                <strong>ЗАГС</strong>
+                1 Майская, 20
+                <div style="font-size: 14px; font-weight: 300; margin-top: 6px; color: #6f5347;">
+                    Мы будем ждать вас!
+                </div>
+            </div>
+            <a href="#" class="btn-route" id="routeBtn">Построить маршрут</a>
+        </div>
+
+        <!-- ВСТАВЛЕННАЯ КАРТА (Яндекс) -->
+        <div class="map-wrapper">
+            <iframe 
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&source=constructor" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="map-actions">
+            <a href="#" class="btn-map primary" id="openYandexBtn">Открыть в Яндекс.Картах</a>
+            <a href="#" class="btn-map" id="openGoogleBtn">Открыть в Google Картах</a>
+        </div>
+    </div>
+
+    <!-- ===== ПОЖЕЛАНИЕ ===== -->
+    <div class="section">
+        <div class="section-title"><span>Пожелание</span></div>
+
+        <div class="wish-block">
+            <strong>Самый ценный для нас подарок — ваше присутствие!</strong><br>
+            А если вы хотите нас порадовать, будем рады
+            <span class="highlight">денежному подарку</span>.<br>
+            Он поможет нам осуществить наши мечты.
+        </div>
+    </div>
+
+    <!-- ===== НИЖНИЙ ДЕКОР ===== -->
+    <div class="footer-ornament">
+        ❀ ❁ ❀
+    </div>
+
+</div>
+
+<!-- ===== СКРИПТЫ ===== -->
+<script>
+    (function() {
+        // ---------- 1. ТАЙМЕР ----------
+        const weddingDate = new Date('2026-09-26T16:20:00').getTime();
+
+        function updateTimer() {
+            const now = Date.now();
+            let diff = weddingDate - now;
+
+            if (diff < 0) {
+                // Свадьба уже прошла
+                document.getElementById('timerDays').textContent = '00';
+                document.getElementById('timerHours').textContent = '00';
+                document.getElementById('timerMinutes').textContent = '00';
+                document.getElementById('timerSeconds').textContent = '00';
+                document.querySelector('.timer-message').innerHTML = 
+                    '❤️ Свадьба уже состоялась! Спасибо, что были с нами ❤️';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            diff -= days * (1000 * 60 * 60 * 24);
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            diff -= hours * (1000 * 60 * 60);
+            const minutes = Math.floor(diff / (1000 * 60));
+            diff -= minutes * (1000 * 60);
+            const seconds = Math.floor(diff / 1000);
+
+            document.getElementById('timerDays').textContent = String(days).padStart(2, '0');
+            document.getElementById('timerHours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('timerMinutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('timerSeconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+
+        // ---------- 2. КАРТА И МАРШРУТЫ ----------
+        const address = '1 Майская, 20';
+        const encoded = encodeURIComponent(address);
+
+        // Яндекс.Карты (прямая ссылка)
+        const yandexUrl = `https://yandex.ru/maps/?text=${encoded}`;
+        // Google Карты
+        const googleUrl = `https://www.google.com/maps/search/?api=1&query=${encoded}`;
+
+        // Кнопка "Построить маршрут"
+        document.getElementById('routeBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open(yandexUrl, '_blank');
+        });
+
+        // Кнопка "Открыть в Яндекс.Картах"
+        document.getElementById('openYandexBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open(yandexUrl, '_blank');
+        });
+
+        // Кнопка "Открыть в Google Картах"
+        document.getElementById('openGoogleBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open(googleUrl, '_blank');
+        });
+
+        // ---------- 3. ЗАМЕНА iframe НА РЕАЛЬНУЮ КАРТУ ----------
+        // Сейчас в iframe заглушка. Чтобы вставить реальную карту:
+        // 1. Зайдите на Яндекс.Карты
+        // 2. Найдите "1 Майская, 20"
+        // 3. Нажмите "Поделиться" → "Встроить карту"
+        // 4. Скопируйте src и вставьте вместо текущего
+        // 
+        // ИЛИ используйте этот готовый вариант с открытой картой:
+        const mapIframe = document.querySelector('.map-wrapper iframe');
+        // Раскомментируйте строку ниже, чтобы использовать карту с меткой:
+        // mapIframe.src = `https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&source=constructor`;
+        // 
+        // А это альтернативный вариант с отображением адреса на карте (более точный):
+        mapIframe.src = `https://yandex.ru/map-widget/v1/?text=${encoded}&z=16&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fll%3D37.588%252C55.734%26spn%3D0.001%252C0.001&source=constructor`;
+        // ↑ Этот вариант показывает карту с центром по адресу, но без метки.
+        // Чтобы поставить метку — нужно получить координаты вручную.
+    })();
+</script>
+
+</body>
+</html>
